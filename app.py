@@ -1,4 +1,3 @@
-from cgitb import text
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -15,11 +14,23 @@ class SayHello(App):
 
         self.window.add_widget(Image(source=('logo.jpg')))
 
-        self.greeting = Label(text = 'What is your name?')
+        self.greeting = Label(
+                    text = 'What is your name?',
+                    font_size = 20,
+                    color = '#00F366')
         self.window.add_widget(self.greeting)
-        self.user = TextInput(multiline=False)
+        self.user = TextInput(
+                    multiline=False,
+                    size_hint = (0.5, 0.4),
+                    padding_y = (20, 20),
+                    padding_x = (5, 20))
         self.window.add_widget(self.user)
-        self.button = Button(text='GREET')
+        self.button = Button(
+                    text='GREET',
+                    size_hint = (0.5, 0.3),
+                    bold = True,
+                    background_color = '#00F366'
+                    )
         self.button.bind(on_press=self.callback)
         self.window.add_widget(self.button)
 
